@@ -1,5 +1,4 @@
-class packageOptions {
+export class packageOptions {
     sourceDirectory: string;
     outputFilename: string;
-    
 }

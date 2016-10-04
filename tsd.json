@@ -10,6 +10,21 @@
     },
     "node/node.d.ts": {
       "commit": "a2c0d1ebc6ebc284367eedfe0dff3467b1dfc95e"
+    },
+    "colors/colors.d.ts": {
+      "commit": "a2c0d1ebc6ebc284367eedfe0dff3467b1dfc95e"
+    },
+    "xmlbuilder/xmlbuilder.d.ts": {
+      "commit": "a2c0d1ebc6ebc284367eedfe0dff3467b1dfc95e"
+    },
+    "lodash/lodash.d.ts": {
+      "commit": "a2c0d1ebc6ebc284367eedfe0dff3467b1dfc95e"
+    },
+    "mkdirp/mkdirp.d.ts": {
+      "commit": "a2c0d1ebc6ebc284367eedfe0dff3467b1dfc95e"
+    },
+    "yargs/yargs.d.ts": {
+      "commit": "a2c0d1ebc6ebc284367eedfe0dff3467b1dfc95e"
     }
   }
 }

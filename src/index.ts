@@ -1,18 +1,13 @@
-import * as archiver    from 'archiver';
+import PackageBuilder from './PackageBuilder';
+import ArgumentsParser from './ArgumentsParser';
+import * as yargs  from 'yargs';
 
-export class OpenWebDeploy{
-    int : number;
-    
-    generateManifestXml(options: any) : void {
-      
-    }
-    
-    generateParametersXml(options: any): void {
-        
-    }
-    
-    
-   createPackage(options: any, callback: any): void {
 
-  }
-}
+var myArgs = process.argv.slice(2);
+ console.log('myArgs: ', myArgs);
+
+process.argv.forEach(function (val, index, array) {
+            
+            console.log(index + ' : ' + val);
+        });
+

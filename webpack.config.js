@@ -10,6 +10,11 @@ var config = {
         loaders: [
         { test: /\.ts$/, loader: 'ts-loader' }
         ]
+    },
+    externals : {
+        "archiver" : "archiver",
+        "lodash" : "lodash",
+        "xmlbuilder" : "xmlbuilder",
     }
 };
 
