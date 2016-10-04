@@ -1,0 +1,32 @@
+{
+  "name": "open-webdeploy",
+  "version": "0.1.0",
+  "description": "",
+  "main": "brocfile.js",
+  "scripts": {
+    "webpack": "webpack",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "echo \"Building...\" "
+  },
+  "keywords": [
+    "Microsoft(TM) Web Deploy",
+    "Web Deploy",
+    "Open Web Deploy"
+  ],
+  "author": "Your Name <nhambayi@gmail.com> (http://systemreflection.net)",
+  "license": "MIT",
+  "devDependencies": {
+    "ts-loader": "^0.8.2",
+    "typescript": "^2.0.3",
+    "webpack": "^1.13.2"
+  },
+  "dependencies": {
+    "archiver": "^1.0.0",
+    "colors": "^1.1.2",
+    "fs": "0.0.2",
+    "lodash": "^4.13.1",
+    "mkdirp": "^0.5.1",
+    "through2": "^2.0.1",
+    "xmlbuilder": "^8.2.2"
+  }
+}
