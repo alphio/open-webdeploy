@@ -53,4 +53,34 @@ import ArgumentsParser from "../src/ArgumentsParser";
             throw new Error("Expected " + expected + " but was " + result.source);
         }
     }
+
+    @test "destinationDirectory should be 'false' when no arguments are passed"() { 
+        let parser = new ArgumentsParser();
+        let expected = false;
+        let result = parser.parse([]);
+
+        if (result.verbose) {
+            throw new Error("Expected " + expected + " but was " + result.verbose);
+        }
+    }
+
+    @test "destinationDirectory should be 'false' when '--verbose' passed"() { 
+        let parser = new ArgumentsParser();
+        let expected = true;
+        let result = parser.parse(["--verbose"]);
+
+        if (result.verbose == false) {
+            throw new Error("Expected " + expected + " but was " + result.verbose);
+        }
+    }
+
+    @test "destinationDirectory should be 'false' when '--v' passed"() { 
+        let parser = new ArgumentsParser();
+        let expected = true;
+        let result = parser.parse(["--v"]);
+
+        if (result.verbose == false) {
+            throw new Error("Expected " + expected + " but was " + result.verbose);
+        }
+    }
 }

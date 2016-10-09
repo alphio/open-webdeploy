@@ -3,4 +3,5 @@ export default class CommandLineOptions {
     outputFilename: string;
     dest: string;
     verb: string;
+    verbose: boolean;
 }

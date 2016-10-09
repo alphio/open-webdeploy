@@ -7,10 +7,11 @@ export default class ArgumentsParser {
         let aliases : { [n: string]: string  } 
                     = {"s": "source",
                         "d": "dest",
-                        "?": "help"};
+                        "?": "help",
+                        "v": "verbose"};
 
         let options = {
-            boolean: ["createFolder"],
+            boolean: ["createFolder", "verbose"],
             default: { 
                 dest: "./deploy", 
                 source : "./src",
@@ -25,6 +26,9 @@ export default class ArgumentsParser {
         let result = new CommandLineOptions();
         result.source = args["source"];
         result.dest = args["dest"];
+
+        result.verbose = args["verbose"];
+    
 
         return result;
     }
