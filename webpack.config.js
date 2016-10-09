@@ -1,4 +1,5 @@
 var config = {
+    target: 'node',
     entry: './src/index.ts',
     output: {
         filename: 'dist/index.js'
