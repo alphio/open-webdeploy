@@ -1,10 +1,10 @@
 import * as minimist from "minimist";
-import CommandLineOptions from "./CommandLineOptions"; 
+import CommandLineOptions from "./CommandLineOptions";
 
 export default class ArgumentsParser {
-    parse(commandLineArgs : Array<any>): CommandLineOptions {
+    parse(commandLineArgs: Array<any>): CommandLineOptions {
 
-        let aliases : { [n: string]: string  } 
+        let aliases: { [n: string]: string  }
                     = {"s": "source",
                         "d": "dest",
                         "?": "help",
@@ -12,8 +12,8 @@ export default class ArgumentsParser {
 
         let options = {
             boolean: ["createFolder", "verbose"],
-            default: { 
-                dest: "./deploy", 
+            default: {
+                dest: "./deploy",
                 source : "./src",
                 verbose: false,
                 help: false },
@@ -28,8 +28,6 @@ export default class ArgumentsParser {
         result.dest = args["dest"];
 
         result.verbose = args["verbose"];
-    
-
         return result;
     }
 
