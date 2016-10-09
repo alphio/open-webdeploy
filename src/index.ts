@@ -1,13 +1,10 @@
-import PackageBuilder from './PackageBuilder';
-import ArgumentsParser from './ArgumentsParser';
-import * as yargs  from 'yargs';
+import PackageBuilder from "./PackageBuilder";
+import ArgumentsParser from "./ArgumentsParser";
 
-
-var myArgs = process.argv.slice(2);
- console.log('myArgs: ', myArgs);
+let myArgs = process.argv.slice(2);
+ console.log("myArgs: ", process);
 
 process.argv.forEach(function (val, index, array) {
-            
-            console.log(index + ' : ' + val);
+            console.log(index + " : " + val);
         });
 

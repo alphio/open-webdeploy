@@ -2,11 +2,12 @@
   "name": "open-webdeploy",
   "version": "0.1.0",
   "description": "",
-  "main": "brocfile.js",
+  "main": "index.js",
   "scripts": {
     "webpack": "webpack",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "echo \"Building...\" "
+    "build": "echo \"Building...\" ",
+    "lint": "tslint -c ./tslint.json src/**/*.ts"
   },
   "keywords": [
     "Microsoft(TM) Web Deploy",
@@ -17,6 +18,7 @@
   "license": "MIT",
   "devDependencies": {
     "ts-loader": "^0.8.2",
+    "tslint": "^3.15.1",
     "typescript": "^2.0.3",
     "webpack": "^1.13.2"
   },
