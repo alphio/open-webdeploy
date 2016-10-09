@@ -2,11 +2,12 @@
   "name": "open-webdeploy",
   "version": "0.1.0",
   "description": "A JavaScript implimentation of Microsoft(TM) Web Deploy",
-  "repository" : "https://github.com/alphio/open-webdeploy",
+  "repository": "https://github.com/alphio/open-webdeploy",
   "main": "index.js",
   "scripts": {
     "webpack": "webpack --display-reasons",
     "build": "webpack --display-reasons",
+    "copy-modules" : "copyfiles node_modules/**/*.* dist/node_modules",
     "lint": "tslint --force -c ./tslint.json 'src/**/*.ts' 'tests/**/*.ts'",
     "test": "mocha --opts mocha.opts",
     "test-watch": "mocha --opts mocha.opts --watch"
@@ -20,6 +21,7 @@
   "author": "Noah Hambayi <nhambayi@gmail.com> (http://systemreflection.net)",
   "license": "MIT",
   "devDependencies": {
+    "copyfiles": "^1.0.0",
     "mocha": "^3.1.0",
     "mocha-typescript": "^1.0.10",
     "ts-loader": "^0.8.2",

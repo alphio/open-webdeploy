@@ -4,4 +4,5 @@ export default class CommandLineOptions {
     dest: string;
     verb: string;
     verbose: boolean;
+    configPath: string;
 }
