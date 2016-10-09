@@ -25,6 +25,9 @@
     },
     "yargs/yargs.d.ts": {
       "commit": "a2c0d1ebc6ebc284367eedfe0dff3467b1dfc95e"
+    },
+    "minimist/minimist.d.ts": {
+      "commit": "e623c6b3164bb8c6da508f84f7865eaaa97e1a0f"
     }
   }
 }
