@@ -5,9 +5,11 @@
   "main": "index.js",
   "scripts": {
     "webpack": "webpack --display-reasons",
-    "test": "echo \"Error: no test specified\" && exit 1",
     "build": "echo \"Building...\" ",
-    "lint": "tslint --force -c ./tslint.json 'src/**/*.ts' 'tests/**/*.ts'"
+    "lint": "tslint --force -c ./tslint.json 'src/**/*.ts' 'tests/**/*.ts'",
+    "dev-test-watch": "mocha-typescript-watch",
+    "mocha": "mocha ./tests/**/*.js --force",
+    "pretest": "tsc ./tests/test.ts --module commonjs"
   },
   "keywords": [
     "Microsoft(TM) Web Deploy",
@@ -17,6 +19,8 @@
   "author": "Your Name <nhambayi@gmail.com> (http://systemreflection.net)",
   "license": "MIT",
   "devDependencies": {
+    "mocha": "^3.1.0",
+    "mocha-typescript": "^1.0.10",
     "ts-loader": "^0.8.2",
     "tslint": "^3.15.1",
     "typescript": "^2.0.3",

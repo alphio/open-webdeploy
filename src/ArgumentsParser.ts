@@ -1,17 +1,31 @@
 import * as minimist from "minimist";
+import CommandLineOptions from "./CommandLineOptions"; 
 
 export default class ArgumentsParser {
-    parse(): void {
-        console.log("Webdeploy...");
+    parse(commandLineArgs : Array<any>): CommandLineOptions {
+
+        let aliases : { [n: string]: string  } = {"s" : "source"};
 
         let options = {
-            boolean: ["run", "deploy", "relaod"],
-            default: { dest: "./dist", source : "." },
+            boolean: ["createFolder"],
+            default: { 
+                dest: "./deploy", 
+                source : "./src" },
+            alias: aliases,
             "--": true,
-            stopEarly: true };
+            stopEarly: false };
 
-        let args = minimist(process.argv.slice(2), options);
-        console.log(args);
+        let args = minimist(commandLineArgs, options);
+
+        let result = new CommandLineOptions();
+        result.sourceDirectory = args["source"];
+        result.outputDirectory = args["dest"];
+
+        return result;
+    }
+
+    test(): boolean {
+        return true;
     }
 
 }
