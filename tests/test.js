@@ -14,32 +14,40 @@ var ArgumentsParserTests = (function () {
         var parser = new ArgumentsParser_1["default"]();
         var expected = "./dist";
         var result = parser.parse(["--source", expected]);
-        if (result.sourceDirectory != expected) {
-            throw new Error("Expected expected but was " + result.sourceDirectory);
+        if (result.source != expected) {
+            throw new Error("Expected expected but was " + result.source);
         }
     };
     ArgumentsParserTests.prototype["sourceDirectory be 'app' for '-s app'"] = function () {
         var parser = new ArgumentsParser_1["default"]();
         var expected = "./app";
         var result = parser.parse(["--s", expected]);
-        if (result.sourceDirectory != expected) {
-            throw new Error("Expected expected but was " + result.sourceDirectory);
+        if (result.source != expected) {
+            throw new Error("Expected expected but was " + result.source);
         }
     };
     ArgumentsParserTests.prototype["destinationDirectory should be 'deploy' when no arguments are passed"] = function () {
         var parser = new ArgumentsParser_1["default"]();
         var expected = "./deploy";
         var result = parser.parse([]);
-        if (result.outputDirectory != expected) {
-            throw new Error("Expected expected but was " + result.outputDirectory);
+        if (result.dest != expected) {
+            throw new Error("Expected expected but was " + result.dest);
+        }
+    };
+    ArgumentsParserTests.prototype["destinationDirectory should be './test' when '-d ./test' is passed"] = function () {
+        var parser = new ArgumentsParser_1["default"]();
+        var expected = "./test";
+        var result = parser.parse(["-d", expected]);
+        if (result.dest != expected) {
+            throw new Error("Expected " + expected + " but was " + result.dest);
         }
     };
     ArgumentsParserTests.prototype["destinationDirectory should be './src' when no arguments are passed"] = function () {
         var parser = new ArgumentsParser_1["default"]();
         var expected = "./src";
         var result = parser.parse([]);
-        if (result.sourceDirectory != expected) {
-            throw new Error("Expected " + expected + " but was " + result.sourceDirectory);
+        if (result.source != expected) {
+            throw new Error("Expected " + expected + " but was " + result.source);
         }
     };
     __decorate([
@@ -51,6 +59,9 @@ var ArgumentsParserTests = (function () {
     __decorate([
         mocha_typescript_1.test
     ], ArgumentsParserTests.prototype, "destinationDirectory should be 'deploy' when no arguments are passed");
+    __decorate([
+        mocha_typescript_1.test
+    ], ArgumentsParserTests.prototype, "destinationDirectory should be './test' when '-d ./test' is passed");
     __decorate([
         mocha_typescript_1.test
     ], ArgumentsParserTests.prototype, "destinationDirectory should be './src' when no arguments are passed");

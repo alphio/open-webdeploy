@@ -1,5 +1,6 @@
 export default class CommandLineOptions {
-    sourceDirectory: string;
+    source: string;
     outputFilename: string;
-    outputDirectory: string;
+    dest: string;
+    verb: string;
 }

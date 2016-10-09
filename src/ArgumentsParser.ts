@@ -4,13 +4,18 @@ import CommandLineOptions from "./CommandLineOptions";
 export default class ArgumentsParser {
     parse(commandLineArgs : Array<any>): CommandLineOptions {
 
-        let aliases : { [n: string]: string  } = {"s" : "source"};
+        let aliases : { [n: string]: string  } 
+                    = {"s": "source",
+                        "d": "dest",
+                        "?": "help"};
 
         let options = {
             boolean: ["createFolder"],
             default: { 
                 dest: "./deploy", 
-                source : "./src" },
+                source : "./src",
+                verbose: false,
+                help: false },
             alias: aliases,
             "--": true,
             stopEarly: false };
@@ -18,8 +23,8 @@ export default class ArgumentsParser {
         let args = minimist(commandLineArgs, options);
 
         let result = new CommandLineOptions();
-        result.sourceDirectory = args["source"];
-        result.outputDirectory = args["dest"];
+        result.source = args["source"];
+        result.dest = args["dest"];
 
         return result;
     }

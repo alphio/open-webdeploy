@@ -9,8 +9,8 @@ import ArgumentsParser from "../src/ArgumentsParser";
         let expected = "./dist";
         let result = parser.parse(["--source", expected]);
 
-        if (result.sourceDirectory != expected) {
-            throw new Error("Expected expected but was " + result.sourceDirectory);
+        if (result.source != expected) {
+            throw new Error("Expected expected but was " + result.source);
         }
     }
 
@@ -19,8 +19,8 @@ import ArgumentsParser from "../src/ArgumentsParser";
         let expected = "./app";
         let result = parser.parse(["--s", expected]);
 
-        if (result.sourceDirectory != expected) {
-            throw new Error("Expected expected but was " + result.sourceDirectory);
+        if (result.source != expected) {
+            throw new Error("Expected expected but was " + result.source);
         }
     }
 
@@ -29,8 +29,18 @@ import ArgumentsParser from "../src/ArgumentsParser";
         let expected = "./deploy";
         let result = parser.parse([]);
 
-        if (result.outputDirectory != expected) {
-            throw new Error("Expected expected but was " + result.outputDirectory);
+        if (result.dest != expected) {
+            throw new Error("Expected expected but was " + result.dest);
+        }
+    }
+
+    @test "destinationDirectory should be './test' when '-d ./test' is passed"() { 
+        let parser = new ArgumentsParser();
+        let expected = "./test";
+        let result = parser.parse(["-d", expected]);
+
+        if (result.dest != expected) {
+            throw new Error("Expected " + expected + " but was " + result.dest);
         }
     }
 
@@ -39,8 +49,8 @@ import ArgumentsParser from "../src/ArgumentsParser";
         let expected = "./src";
         let result = parser.parse([]);
 
-        if (result.sourceDirectory != expected) {
-            throw new Error("Expected " + expected + " but was " + result.sourceDirectory);
+        if (result.source != expected) {
+            throw new Error("Expected " + expected + " but was " + result.source);
         }
     }
 }

@@ -5,19 +5,23 @@ var ArgumentsParser = (function () {
     function ArgumentsParser() {
     }
     ArgumentsParser.prototype.parse = function (commandLineArgs) {
-        var aliases = { "s": "source" };
+        var aliases = { "s": "source",
+            "d": "dest",
+            "?": "help" };
         var options = {
             boolean: ["createFolder"],
             default: {
                 dest: "./deploy",
-                source: "./src" },
+                source: "./src",
+                verbose: false,
+                help: false },
             alias: aliases,
             "--": true,
             stopEarly: false };
         var args = minimist(commandLineArgs, options);
         var result = new CommandLineOptions_1["default"]();
-        result.sourceDirectory = args["source"];
-        result.outputDirectory = args["dest"];
+        result.source = args["source"];
+        result.dest = args["dest"];
         return result;
     };
     ArgumentsParser.prototype.test = function () {
