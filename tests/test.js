@@ -34,6 +34,14 @@ var ArgumentsParserTests = (function () {
             throw new Error("Expected expected but was " + result.outputDirectory);
         }
     };
+    ArgumentsParserTests.prototype["destinationDirectory should be './src' when no arguments are passed"] = function () {
+        var parser = new ArgumentsParser_1["default"]();
+        var expected = "./src";
+        var result = parser.parse([]);
+        if (result.sourceDirectory != expected) {
+            throw new Error("Expected " + expected + " but was " + result.sourceDirectory);
+        }
+    };
     __decorate([
         mocha_typescript_1.test
     ], ArgumentsParserTests.prototype, "sourceDirectory should be ./dist");
@@ -43,6 +51,9 @@ var ArgumentsParserTests = (function () {
     __decorate([
         mocha_typescript_1.test
     ], ArgumentsParserTests.prototype, "destinationDirectory should be 'deploy' when no arguments are passed");
+    __decorate([
+        mocha_typescript_1.test
+    ], ArgumentsParserTests.prototype, "destinationDirectory should be './src' when no arguments are passed");
     ArgumentsParserTests = __decorate([
         mocha_typescript_1.suite
     ], ArgumentsParserTests);

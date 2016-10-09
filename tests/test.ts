@@ -33,4 +33,14 @@ import ArgumentsParser from "../src/ArgumentsParser";
             throw new Error("Expected expected but was " + result.outputDirectory);
         }
     }
+
+    @test "destinationDirectory should be './src' when no arguments are passed"() { 
+        let parser = new ArgumentsParser();
+        let expected = "./src";
+        let result = parser.parse([]);
+
+        if (result.sourceDirectory != expected) {
+            throw new Error("Expected " + expected + " but was " + result.sourceDirectory);
+        }
+    }
 }
