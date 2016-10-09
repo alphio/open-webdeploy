@@ -1,7 +1,8 @@
 {
   "name": "open-webdeploy",
   "version": "0.1.0",
-  "description": "",
+  "description": "A JavaScript implimentation of Microsoft(TM) Web Deploy",
+  "repository" : "https://github.com/alphio/open-webdeploy",
   "main": "index.js",
   "scripts": {
     "webpack": "webpack --display-reasons",
@@ -13,9 +14,10 @@
   "keywords": [
     "Microsoft(TM) Web Deploy",
     "Web Deploy",
+    "Webdeploy",
     "Open Web Deploy"
   ],
-  "author": "Your Name <nhambayi@gmail.com> (http://systemreflection.net)",
+  "author": "Noah Hambayi <nhambayi@gmail.com> (http://systemreflection.net)",
   "license": "MIT",
   "devDependencies": {
     "mocha": "^3.1.0",
