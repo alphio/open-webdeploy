@@ -5,7 +5,7 @@ import * as xmlBuilder      from "xmlbuilder";
 import * as _               from "lodash";
 import * as colors          from "colors";
 
-import CommandLineOptions   from "./CommandLineOptions"; 
+import CommandLineOptions   from "./CommandLineOptions";
 
 export default class PackageBuilder {
     config: CommandLineOptions;
@@ -14,7 +14,7 @@ export default class PackageBuilder {
         this.config = config;
     }
 
-    generate(): void{
+    generate(): void {
       console.log(this.config);
       this.buildPackage(this.config);
     }
@@ -26,7 +26,7 @@ export default class PackageBuilder {
     }
 
     generateParametersXml(options: any): any {
-        let archive_xml = xmlBuilder.create("").end({ pretty: true});
+      let archive_xml = xmlBuilder.create("").end({ pretty: true});
       return archive_xml;
     }
 
@@ -39,23 +39,24 @@ export default class PackageBuilder {
 
       console.log("Creating web deploy package ");
 
-          let output = fileSystem.createWriteStream(options.dest);
-          let archive = archiver('zip',{ });
-          console.log("Archiving...");
+      let output = fileSystem.createWriteStream(options.dest);
+      let archive = archiver("zip", { });
+      console.log("Archiving...");
 
-          output.on('close', function () {
-            console.log("Package  created");
-          });
+      output.on("close", function () {
+        console.log("Package  created");
+      });
 
-          archive.on('error', function(err){
-              console.log(err.toString());
-          });
+      archive.on("error", function(err){
+        console.log(err.toString());
+      });
 
-          archive.pipe(output);
-          
-          //archive.append(stream);
-          //archive.append(generateParametersXml(options), { name:'parameters.xml' });
-          //archive.append( generateManifestXml(options), { name:'manifest.xml' });
-          archive.finalize();
+      archive.pipe(output);
+
+      // archive.append(stream);
+      // archive.append(generateParametersXml(options), { name:'parameters.xml' });
+      // archive.append( generateManifestXml(options), { name:'manifest.xml' });
+
+      archive.finalize();
     }
 }
