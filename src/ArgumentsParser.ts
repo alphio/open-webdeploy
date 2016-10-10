@@ -3,13 +3,14 @@ import * as colors from "colors";
 import CommandLineOptions from "./CommandLineOptions";
 
 export default class ArgumentsParser {
+
     parse(commandLineArgs: Array<any>): CommandLineOptions {
 
         let aliases: { [n: string]: string  }
-                    = {"s": "source",
+                    = { "s": "source",
                         "d": "dest",
                         "?": "help",
-                        "v": "verbose"};
+                        "v": "verbose" };
 
         let options = {
             boolean: ["verbose"],
@@ -39,9 +40,4 @@ export default class ArgumentsParser {
         console.log("open-webdeploy " + "WARN:" + " Unknown recognized parameter: '" + param + "'");
         return true;
     }
-
-    test(): boolean {
-        return true;
-    }
-
 }

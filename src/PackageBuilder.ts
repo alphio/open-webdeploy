@@ -34,24 +34,30 @@ export default class PackageBuilder {
       console.log("Starting...");
 
       mkdirp(options.dest, function(err) {
-          console.log(err);
+          if(err) {
+            console.log(err);
+          }
         });
 
       console.log("Creating web deploy package ");
 
-      let output = fileSystem.createWriteStream(options.dest);
+      let output = fileSystem.createWriteStream(options.dest + "/deploy.zip");
       let archive = archiver("zip", { });
       console.log("Archiving...");
 
       output.on("close", function () {
-        console.log("Package  created");
+        console.log("Package  created.");
       });
 
       archive.on("error", function(err){
-        console.log(err.toString());
+        console.log("Error:" + err.toString());
       });
 
       archive.pipe(output);
+      
+      archive.directory("src", {
+        "name" : "src"
+      });
 
       // archive.append(stream);
       // archive.append(generateParametersXml(options), { name:'parameters.xml' });
