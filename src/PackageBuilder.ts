@@ -5,8 +5,19 @@ import * as xmlBuilder      from "xmlbuilder";
 import * as _               from "lodash";
 import * as colors          from "colors";
 
+import CommandLineOptions   from "./CommandLineOptions"; 
+
 export default class PackageBuilder {
-    int: number;
+    config: CommandLineOptions;
+
+    constructor(config: CommandLineOptions) {
+        this.config = config;
+    }
+
+    generate(): void{
+      console.log(this.config);
+      this.buildPackage(this.config);
+    }
 
     generateManifestXml(options: any): any {
       let system_info_xml = xmlBuilder.create("")
@@ -19,7 +30,32 @@ export default class PackageBuilder {
       return archive_xml;
     }
 
-   build(options: any, callback: any): void {
+    buildPackage(options: CommandLineOptions): any {
+      console.log("Starting...");
 
-  }
+      mkdirp(options.dest, function(err) {
+          console.log(err);
+        });
+
+      console.log("Creating web deploy package ");
+
+          let output = fileSystem.createWriteStream(options.dest);
+          let archive = archiver('zip',{ });
+          console.log("Archiving...");
+
+          output.on('close', function () {
+            console.log("Package  created");
+          });
+
+          archive.on('error', function(err){
+              console.log(err.toString());
+          });
+
+          archive.pipe(output);
+          
+          //archive.append(stream);
+          //archive.append(generateParametersXml(options), { name:'parameters.xml' });
+          //archive.append( generateManifestXml(options), { name:'manifest.xml' });
+          archive.finalize();
+    }
 }

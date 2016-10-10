@@ -3,6 +3,8 @@ import PackageBuilder from "../src/PackageBuilder";
 
 @suite class PackageBuilderTests {
 
+    
+
     @test "PackageBuilder should initialize"() {
         let builder = new PackageBuilder();
     }

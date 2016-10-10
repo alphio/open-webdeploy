@@ -13,9 +13,6 @@ var config = {
         ]
     },
     externals : {
-        "archiver" : "archiver",
-        "lodash" : "lodash",
-        "xmlbuilder" : "xmlbuilder"
     }
 };
 

@@ -1,4 +1,4 @@
-export default class CommandLineOptions {
+export default class   {
     source: string;
     outputFilename: string;
     dest: string;

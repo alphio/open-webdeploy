@@ -2,7 +2,14 @@
   "name": "open-webdeploy",
   "version": "0.1.0",
   "description": "A JavaScript implimentation of Microsoft(TM) Web Deploy",
-  "repository": "https://github.com/alphio/open-webdeploy",
+  "homepage": "https://github.com/alphio/open-webdeploy",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/alphio/open-webdeploy"
+  },
+  "bugs": {
+    "url": "https://github.com/alphio/open-webdeploy/issues"
+  },
   "main": "index.js",
   "scripts": {
     "webpack": "webpack --display-reasons",
