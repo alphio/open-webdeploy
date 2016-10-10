@@ -22,11 +22,13 @@ export default class PackageBuilder {
     generateManifestXml(options: any): any {
       let system_info_xml = xmlBuilder.create("")
         .end({ pretty: true});
+        system_info_xml = "<test>test1</test>";
       return system_info_xml;
     }
 
     generateParametersXml(options: any): any {
       let archive_xml = xmlBuilder.create("").end({ pretty: true});
+      archive_xml = "<test>test2</test>";
       return archive_xml;
     }
 
@@ -34,7 +36,7 @@ export default class PackageBuilder {
       console.log("Starting...");
 
       mkdirp(options.dest, function(err) {
-          if(err) {
+          if( err ) {
             console.log(err);
           }
         });
@@ -43,7 +45,7 @@ export default class PackageBuilder {
 
       let output = fileSystem.createWriteStream(options.dest + "/deploy.zip");
       let archive = archiver("zip", { });
-      console.log("Archiving...");
+      console.log("Creating package...");
 
       output.on("close", function () {
         console.log("Package  created.");
@@ -54,14 +56,13 @@ export default class PackageBuilder {
       });
 
       archive.pipe(output);
-      
+
       archive.directory("src", {
         "name" : "src"
       });
 
-      // archive.append(stream);
-      // archive.append(generateParametersXml(options), { name:'parameters.xml' });
-      // archive.append( generateManifestXml(options), { name:'manifest.xml' });
+      archive.append( this.generateParametersXml({}), { name: "parameters.xml" });
+      archive.append( this.generateManifestXml({}), { name: "manifest.xml" });
 
       archive.finalize();
     }
