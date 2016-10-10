@@ -10,6 +10,10 @@
   "bugs": {
     "url": "https://github.com/alphio/open-webdeploy/issues"
   },
+  "author": {
+    "name": "Noah Hambayi",
+    "url": "http://systemreflection.net" 
+  },
   "main": "index.js",
   "scripts": {
     "webpack": "webpack --display-reasons",
@@ -25,7 +29,6 @@
     "Webdeploy",
     "Open Web Deploy"
   ],
-  "author": "Noah Hambayi <nhambayi@gmail.com> (http://systemreflection.net)",
   "license": "MIT",
   "devDependencies": {
     "copyfiles": "^1.0.0",
