@@ -32,18 +32,16 @@ export default class PackageBuilder {
       return archive_xml;
     }
 
-    buildPackage(options: CommandLineOptions): any {
-      console.log("Starting...");
-
-      mkdirp(options.dest, function(err) {
+    createOutputDirectory(directoryPath: string, callback: Function): void {
+      mkdirp(directoryPath, function(err) {
           if( err ) {
             console.log(err);
           }
         });
+    }
 
-      console.log("Creating web deploy package ");
-
-      let output = fileSystem.createWriteStream(options.dest + "/deploy.zip");
+    createArchive(path: string): void {
+      let output = fileSystem.createWriteStream(path + "/deploy.zip");
       let archive = archiver("zip", { });
       console.log("Creating package...");
 
@@ -65,5 +63,18 @@ export default class PackageBuilder {
       archive.append( this.generateManifestXml({}), { name: "manifest.xml" });
 
       archive.finalize();
+    }
+
+    buildPackage(options: CommandLineOptions): any {
+
+      console.log("Starting...");
+      this.createOutputDirectory(options.dest, this.onOutputDirectoryCreated);
+
+
+    }
+
+    onOutputDirectoryCreated(): void{
+      console.log("Output directory created.");
+      this.createArchive(this.config.dest);
     }
 }
