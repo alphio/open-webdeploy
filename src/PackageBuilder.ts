@@ -34,10 +34,10 @@ export default class PackageBuilder {
 
     createOutputDirectory(directoryPath: string, callback: Function): void {
       mkdirp(directoryPath, function(err) {
-          if( err ) {
-            console.log(err);
-          }
-        });
+        if (err) {
+          console.log(err);
+        }
+      });
     }
 
     createArchive(path: string): void {
@@ -66,14 +66,11 @@ export default class PackageBuilder {
     }
 
     buildPackage(options: CommandLineOptions): any {
-
       console.log("Starting...");
       this.createOutputDirectory(options.dest, this.onOutputDirectoryCreated);
-
-
     }
 
-    onOutputDirectoryCreated(): void{
+    onOutputDirectoryCreated(): void {
       console.log("Output directory created.");
       this.createArchive(this.config.dest);
     }
