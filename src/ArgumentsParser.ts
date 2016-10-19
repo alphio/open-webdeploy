@@ -15,7 +15,7 @@ export default class ArgumentsParser {
         let options = {
             boolean: ["verbose"],
             default: {
-                dest: "./deploy/build.zip",
+                dest: "./deploy/webdeploy.zip",
                 source : "./src",
                 "config-path": "./webdeploy.config",
                 verbose: false,

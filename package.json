@@ -12,13 +12,13 @@
   },
   "author": {
     "name": "Noah Hambayi",
-    "url": "http://systemreflection.net" 
+    "url": "http://systemreflection.net"
   },
   "main": "index.js",
   "scripts": {
     "webpack": "webpack --watch",
     "build": "webpack --display-reasons",
-    "copy-modules" : "copyfiles node_modules/**/*.* dist/node_modules",
+    "copy-modules": "copyfiles node_modules/**/*.* dist/node_modules",
     "lint": "tslint --force -c ./tslint.json 'src/**/*.ts' 'tests/**/*.ts'",
     "test": "mocha --opts mocha.opts",
     "test-watch": "mocha --opts mocha.opts --watch"
@@ -35,7 +35,7 @@
     "mocha": "^3.1.0",
     "mocha-typescript": "^1.0.10",
     "ts-loader": "^0.8.2",
-    "ts-node": "^1.4.1",
+    "ts-node": "^1.6.0",
     "tslint": "^3.15.1",
     "typescript": "^2.0.3",
     "webpack": "^1.13.2"

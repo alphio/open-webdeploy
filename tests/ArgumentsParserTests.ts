@@ -24,13 +24,13 @@ import ArgumentsParser from "../src/ArgumentsParser";
         }
     }
 
-    @test "destinationDirectory should be 'deploy' when no arguments are passed"() {
+    @test "destinationDirectory should be './deploy/webdeploy.zip' when no arguments are passed"() {
         let parser = new ArgumentsParser();
-        let expected = "./deploy";
+        let expected = "./deploy/webdeploy.zip";
         let result = parser.parse([]);
 
         if (result.dest !== expected) {
-            throw new Error("Expected expected but was " + result.dest);
+            throw new Error("Expected " + expected + " but was " + result.dest);
         }
     }
 
