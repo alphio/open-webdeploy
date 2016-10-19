@@ -16,8 +16,11 @@
     "inlineSources": true
   },
 
-  "files": [
-    "src/index.ts",
-    "typings/index.d.ts"
-  ]
+  "include": [
+        "src/**/*.ts",
+        "tests/**/*.ts"
+    ],
+    "files": [
+      "typings/index.d.ts"
+    ]
 }
